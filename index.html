@@ -181,13 +181,32 @@
       z-index: 10;
     }
 
+    .spinner-wrapper {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .spinner {
+      position: absolute;
       border: 6px solid #f3f3f3;
       border-top: 6px solid #333;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 60px;
+      height: 60px;
       animation: spin 1s linear infinite;
+    }
+
+    .spinner-text {
+      z-index: 2;
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+      pointer-events: none;
     }
 
     @keyframes spin {
@@ -201,12 +220,12 @@
   <div class="container">
     <div class="spinner-overlay" id="spinner">
       <div style="text-align: center;">
-        <div class="spinner" style="margin: auto;"></div>
+        <div class="spinner-wrapper">
+          <div class="spinner"></div>
+          <div class="spinner-text" id="progressPercent">0%</div>
+        </div>
         <div style="margin-top: 15px; font-size: 16px; font-weight: bold; color: #333;">
           Switching Manual Override
-        </div>
-        <div id="progressPercent" style="margin-top: 8px; font-size: 14px; color: #555;">
-          0%
         </div>
       </div>
     </div>
